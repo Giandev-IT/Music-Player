@@ -268,6 +268,7 @@ let songs = [
     },
 
 ];
+
 let currentSongIndex = 0;
 let isPlaying = false;
 let isShuffle = false;
@@ -320,9 +321,7 @@ function showPlayerPage() {
     if (currentSong && currentSong.videoBgSrc) {
         backgroundVideo.src = currentSong.videoBgSrc;
         backgroundVideo.load();
-        backgroundVideo.play().catch(e => 
-            console.error("Error playing video background:", e)
-                                    );
+        backgroundVideo.play().catch(e => console.error("Error playing video background:", e));
     } else {
         backgroundVideo.src = "";
         backgroundVideo.load(); // Kosongkan src jika tidak ada video khusus
@@ -362,9 +361,7 @@ function renderSongList() {
                 backgroundVideo.src = song.videoBgSrc;
                 backgroundVideo.load();
                 backgroundVideoContainer.classList.add('active');
-                backgroundVideo.play().catch(e => 
-                    console.error("Error playing video on hover:", e)
-                                            );
+                backgroundVideo.play().catch(e => console.error("Error playing video on hover:", e));
                 bodyElement.classList.add('player-active-bg'); // Tambahkan kelas untuk warna background body
             }
         });
@@ -442,9 +439,7 @@ function playTrack() {
         }
     }
     isPlaying = true;
-    audioPlayer.play().catch(error => 
-        console.error("Error saat play:", error)
-                            );
+    audioPlayer.play().catch(error => console.error("Error saat play:", error));
     updatePlayPauseIcon();
 }
 
